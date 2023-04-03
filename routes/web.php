@@ -23,7 +23,9 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('master');
 });
-
+Route::get('/news', function () {
+    return view('news');
+});
 // Route::get('index',[
 //     'as'=>'homepage',
 //     'user'=>'PageController@getIndex'

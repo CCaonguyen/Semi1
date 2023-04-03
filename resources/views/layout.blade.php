@@ -76,16 +76,7 @@
 
                                         
 
-                                        <li><a href="#">Pages</a>
-                                            <ul class="dropdown">
-                                                <div class="form-group">
-                                                    <li><a href="index.html">Balad</a></li>
-                                                    <li><a href="index.html">rock</a></li>
-                                                    <li><a href="index.html">Country</a></li>
-                                            </ul>
-
-                                        </li>
-
+                                        
                                         <li><a href="{{ asset('news') }}">News</a></li>
 
 
@@ -99,10 +90,10 @@
                                         <div class="login-register-cart-button d-flex align-items-center">
                                             <!-- Login/Register -->
                                             <div class="login-register-btn mr-50">
-                                                <a href="{{ asset('login_url') }}" id="loginBtn">Login</a>
+                                                <a href="{{ asset('login') }}" id="loginBtn">Login</a>
                                             </div>
                                             <div class="login-register-btn mr-50">
-                                                <a href="{{ asset('register_url') }}" id="loginBtn"> Register</a>
+                                                <a href="{{ asset('signup') }}" id="loginBtn"> Register</a>
                                             </div>
                                         </div>
                                       

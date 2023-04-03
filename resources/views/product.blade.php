@@ -1,97 +1,60 @@
-@include('header')
-@section('title', 'Bevis | Product')
-        <!-- PRODUCT DETAIL -->
-    @yield('product')
-     <!-- TOOL SOFT -->
-        <div class="product">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-2"></div>
-                    <div class="col-xl-2">
-                        <div class="filter">
-                            <h4><a href="#">Smart phone</a></h4>
-                            <hr style="border: 2px solid">
-                            <div class="accordion accordion-flush" id="accordionFlushExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        <h5>Type</h5>
-                                    </button>
-                                    </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li><a href="#">Limited Edition</a></li>
-                                                <li><a href="#">Online Only</a></li>
-                                                <li><a href="#">Sale Off</a></li>
-                                                <li><a href="#">Best Seller</a></li>
-                                                <li><a href="#">New Arrival</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr style="border: 1px dashed white;">
-                            <div class="accordion accordion-flush" id="accordionFlushExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        <h5>SIZE</h5>
-                                    </button>
-                                    </h2>
-                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li><a href="#">36</a></li>
-                                                <li><a href="#">37</a></li>
-                                                <li><a href="#">38</a></li>
-                                                <li><a href="#">39</a></li>
-                                                <li><a href="#">40</a></li>
-                                                <li><a href="#">41</a></li>
-                                                <li><a href="#">42</a></li>
-                                                <li><a href="#">43</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr style="border: 1px dashed white;">
-                            <div class="accordion accordion-flush" id="accordionFlushExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        <h5>COLOR</h5>
-                                    </button>
-                                    </h2>
-                                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li><a href="#">Red</a></li>
-                                                <li><a href="#">Black</a></li>
-                                                <li><a href="#">Green</a></li>
-                                                <li><a href="#">White</a></li>
-                                                <li><a href="#">Yellow</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+@extends('layout')
+ @section('content')
+ 
+     <!-- Stylesheet -->
+     <link rel="stylesheet" href="{{ asset('css/albums.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/shoping.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/chao.css') }}">
+ 
 
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="banner">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <img src="{{'BevisSneaker'}}/images/banner-ed.jpg" alt="">
+     <!-- ##### Breadcumb Area Start ##### -->
+     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(Image/anh/17.jpg);">
+         <div class="bradcumbContent">
+             <h2>Latest Albums</h2>
+         </div>
+     </section>
+     <!-- ##### Breadcumb Area End ##### -->
+
+     <!-- ##### Album Catagory Area Start ##### -->
+     <section class="album-catagory section-padding-100-0">
+         <div class="container">
+             <div class="row">
+                 <div class="col-12">
+                     <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">
+                        <div class="col-10 agileits_search">
+                                <form action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="input-group">
+                                        <input type="text" class="form-control mr-sm-2" name="keyword" placeholder="Search videos..." id="keyword">
+                                        
+                                                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                                            </span>
+                                        </a>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </div>
-                        <div class="single--product">
-                            <div class="container-fluid">
-                                <div class="row">
+                         </div>
+                         <div class="mx-auto pull-right" style="position:absolute; right:246px"> 
+                                                        
+                             @if (session('sucmessage'))
+                                 <span >
+                                    <strong>{{ session('sucmessage') }}</strong></span>
+                             @endif
+                             
+                         </div>
+
+                     </div>
+                 </div>
+
+                 
+
+                   
+     <!-- ##### Album Catagory Area End ##### -->
+     
+     <!-- ##### Buy Now Area Start ##### -->
+     <div class="oneMusic-buy-now-area mb-100">
+         <div class="container">
+             <div class="row">
                                     @foreach ( $product as $value )
                                     <div class="col-xl-3">
                                         {{-- @foreach ( $product as $key => $value ) --}}
@@ -124,4 +87,50 @@
                 </div>
             </div>
         </div>
-@include('footer')
+
+        <footer class="footer-area">
+            <div class="container">
+                <div class="row d-flex flex-wrap align-items-center">
+                    <div class="col-12 col-md-6">
+                        <a href="#"><img src="{{ asset('BevisSneaker/images/logo.png') }}" alt=""></a>
+    
+                        <p class="copywrite-text"><a href="#">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                <a>Ccao Nguyen</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+    
+                    <div class="col-12 col-md-6">
+                        <div class="footer-nav">
+                            <ul>
+                                <li><a href="{{ asset('') }}">Home</a></li>
+                                <li><a href="{{ asset('albums') }}">Albums</a></li>
+                                <li><a href="{{ asset('news') }}">News</a></li>
+    
+                                <li><a href="{{ asset('shoping') }}">Shoping</a></li>
+                                <li> <a href="{{ asset('login_url') }}" id="loginBtn">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- ##### Footer Area Start ##### -->
+    
+        <!-- ##### All Javascript Script ##### -->
+        <!-- jQuery-2.2.4 js -->
+        <script src="{{ asset('js/jquery/jquery-2.2.4.min.js') }}"></script>
+        <!-- Popper js -->
+        <script src="{{ asset('js/bootstrap/popper.min.js') }}"></script>
+        <!-- Bootstrap js -->
+        <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
+        <!-- All Plugins js -->
+        <script src="{{ asset('js/plugins/plugins.js') }}"></script>
+        <!-- Active js -->
+        <script src="{{ asset('js/active.js') }}"></script>
+    
+    </body>
+    
+    </html>
+    

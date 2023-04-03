@@ -18,5 +18,9 @@ class HomeController extends Controller
 
     return view ('search_product')->with(compact('product'));
 }
+public function news()
+{
+  return view('news');
   
+}
 }
