@@ -17,12 +17,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-9">
+                     @foreach ( $news as $value )
 
                     <!-- Single Post Start -->
                     <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
+                        {{-- @foreach ( $news as $key => $value ) --}}
                         <!-- Post Thumb -->
                         <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="Image/anh/16.jpg" alt=""></a>
+                            <a href="#"><img src="{{asset('Images/news/'.$value->images)}}" alt=""></a>
                             <!-- Post Date -->
                             <div class="post-date">
                                 <span>15</span>
@@ -33,88 +35,22 @@
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
+                            <a href="#" class="post-title">{{$value->heading}}</a>
                             <!-- Post Meta -->
                             <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
+                                <p class="post-author">By<a href="#">>{{$value->author}}</a></p>
                                 <p class="tags">in<a href="#"> Events</a></p>
                                 <p class="tags"><a href="#">2 Comments</a></p>
                             </div>
                             <!-- Post Excerpt -->
-                            <p>YEAH!!
-                                Do you remember, back then?
-                                The days of "might is right"
-                                The days of "thick or thin"
-                                The simplest of times.
-                                Those days are far behind us
-                                All we know now is pain.
-                                But I'll defend us 'til the end of our days.
+                            <p>
+                                {{$value->paraphase}}
                                 </p>
                         </div>
                     </div>
+                     @endforeach
 
-                    <!-- Single Post Start -->
-                    <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Post Thumb -->
-                        <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="Image/anh/50.jpg" alt=""></a>
-                            <!-- Post Date -->
-                            <div class="post-date">
-                                <span>15</span>
-                                <span>June ‘18</span>
-                            </div>
-                        </div>
-
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
-                            <!-- Post Meta -->
-                            <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
-                                <p class="tags">in<a href="#"> Events</a></p>
-                                <p class="tags"><a href="#">2 Comments</a></p>
-                            </div>
-                            <!-- Post Excerpt -->
-                            <p>(Might is right!) 'Til we crystallize.
-                                (Sacrifice!) Let me save one more life!
-                                Trust in me, I will never let you fall!
-                                (No, woah!)
-                                Stand with me and we will save them all!
-                                Woah, we'll save them all!!</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Post Start -->
-                    <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Post Thumb -->
-                        <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="Image/anh/47.jpg" alt=""></a>
-                            <!-- Post Date -->
-                            <div class="post-date">
-                                <span>15</span>
-                                <span>June ‘18</span>
-                            </div>
-                        </div>
-
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
-                            <!-- Post Meta -->
-                            <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
-                                <p class="tags">in<a href="#"> Events</a></p>
-                                <p class="tags"><a href="#">2 Comments</a></p>
-                            </div>
-                            <!-- Post Excerpt -->
-                            <p>Trust in me, I will never let you fall.
-                                Oh, trust me, I will never let you fall!
-                                (No, woah!)
-                                Stand with me and we will save them all!
-                                Woah, we'll save them all!! (save them all!!)</p>
-                        </div>
-                    </div>
+                   
 
                     <!-- Pagination -->
                     <div class="oneMusic-pagination-area wow fadeInUp" data-wow-delay="300ms">

@@ -115,3 +115,14 @@ Route::get('admin-order',[OrderController::class, 'index'])->name('admin.order.i
 Route::post('admin-order/approve/{id}',[OrderController::class, 'approve'])->name('admin.order.approve');
 Route::post('admin-order/delete/{id}',[OrderController::class, 'delete'])->name('admin.order.delete');
 Route::get('admin-order-detail/{id}',[OrderController::class, 'detail'])->name('admin.order.detail');
+
+
+// NEWS========================================================================================
+Route::get('news', 'NewsController@ShowNews') ->name('news');
+Route::get('admin-news', 'NewsController@formNews') ->name('admin-news');
+Route::post('admin-news', 'NewsController@CreateNews') ->name('postnews');
+
+Route::get('admin-news/{newsid}', 'NewsController@DeleteNews') ->name('delete-news');
+
+// Route::get('admin-news',[AdminController::class, 'getNews']) -> name('admin-news');
+// Route::get('admin-news', 'NewsController@getAllAdminNews') ->name('admin-news');
