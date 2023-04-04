@@ -38,8 +38,7 @@
                                 @endif --}}
 
                         </a>
-                        <a href="#"><i class="fa-solid fa-heart"></i> Love</a>
-                        <a href="#"><i class="fa-solid fa-truck"></i> Tracking</a>
+                       
                     </div>
                     <div class="col-xl-1"></div>
                 </div>
@@ -57,15 +56,25 @@
                             <!-- Navbar -->
                             <div class="nav-menu">
                                 <ul style="margin-bottom: 0;">
-                                    <li><a href="{{route('index')}}"><h4>HOME</h4></a></li>
-                                    <li class="line"></li>
-                                    <li><a href="{{route('product')}}"><h4>PRODUCT</h4></a></li>
-                                    <li class="line"></li>
-                                    <li><a href="#"><h4>FEEDBACK</h4></a></li>
-                                    <li class="line"></li>
-                                    <li><a href="#"><h4>SALE OFF</h4></a></li>
-                                    <li class="line"></li>
-                                    <li><h4 style="color: #ff5f17">Ccao</h4></li>
+                                    <li><a  href="{{route('index')}}">Home</a></li>
+           
+                                        <li><a href="{{ asset('product') }}">Product</a></li>
+
+
+
+                                        
+
+                                        
+                                        <li><a href="{{ asset('news') }}">News</a></li>
+
+
+
+
+
+
+                                    </ul>
+                         
+                                     
                                 </ul>
                             </div>
                         </div>
