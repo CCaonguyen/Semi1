@@ -24,7 +24,8 @@
                         {{-- @foreach ( $news as $key => $value ) --}}
                         <!-- Post Thumb -->
                         <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="{{asset('Images/news/'.$value->images)}}" alt=""></a>
+                            <a href="#"><img src="{{asset('Image/anh/'.$value->images)}}" alt=""></a>
+                            {{-- sua? lai link anh cho nay --}}
                             <!-- Post Date -->
                             <div class="post-date">
                                 <span>15</span>

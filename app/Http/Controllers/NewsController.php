@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\NewsController;
+use App\Http\Controllers\CategoryController;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NewsController extends Controller
+class CategoryController extends Controller
 {
     public function formNews()
     {
-         $news = News::All();
+         $Category = Category::All();
         
         return view('admin.admin-news',  compact("news"));
     }

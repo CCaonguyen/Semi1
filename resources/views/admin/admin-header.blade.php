@@ -60,8 +60,31 @@
                 </a>
             </li>
 
-            
+                        <hr class="sidebar-divider">
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin-category')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Category</span>
+                </a>
+            </li>
 
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin-color')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Color</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin-size')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Size</span>
+                </a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->

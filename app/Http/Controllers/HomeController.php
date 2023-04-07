@@ -5,19 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
-use App\Models\images;
+use App\Models\image;
 
 
 class HomeController extends Controller
 {
  
-  public function search(Request $request){
-    $search = $request->input('query');
-    $product = Product::where('productname', 'LIKE', '%'.$search.'%')
-            ->get();
+  public function search(Request $request)
+  {
 
-    return view ('search_product')->with(compact('product'));
-}
+    $search = $request->keyword;
+
+    $product= product::query()
+    ->where('productname','LIKE',"%{$search}%")
+    ->orwhere('productid','LIKE',"%{$search}%")
+    ->get();
+    return view('product', compact('Product'),['sucmessage'=>'Search results for'.$search]);
+  }
 public function news()
 {
   return view('news');

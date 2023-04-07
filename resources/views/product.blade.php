@@ -25,7 +25,7 @@
                                 <form action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="input-group">
-                                        <input type="text" class="form-control mr-sm-2" name="keyword" placeholder="Search videos..." id="keyword">
+                                        <input type="text" class="form-control mr-sm-2" name="keyword" placeholder="Search image..." id="keyword">
                                         
                                                 <button class="btn my-2 my-sm-0" type="submit">Search</button>
                                             </span>

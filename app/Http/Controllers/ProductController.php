@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\size;
+use App\Models\color;
+use App\Models\category;
+
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Response;
-use App\Http\Controllers\ProductController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -26,16 +30,28 @@ class ProductController extends Controller
         return view('admin.admin-product', compact("product"));
     }
 
+    // public function getAllAdminProduct()
+    // {
+
+    //     $product = DB::table('product')
+    //         ->join('category', 'product.category', '=', 'category.categoryID')
+    //         ->join('color', 'product.color', '=', 'color.colorID')
+    //         ->join('size', 'product.size', '=', 'size.sizeID')
+    //         ->select('product.*','category.category','color.color')
+    //         ->get();
+    //     return view('admin.admin-product', ['product' => $product]);
+    // }
+
     public function addProduct(Request $request)
     {
         $product = new product;
-        $product->productid = $request->productid;
+        $product->productID = $request->productID;
         $product->productname = $request->productname;
         $product->price = $request->price;
-        $product->color = $request->color;
-        $product->size = $request->size;
+        $product->colorID = $request->colorID;
+        $product->sizeID = $request->sizeID;
         $product->images = $request->images;
-        $product->category = $request->category;
+        $product->categoryID = $request->categoryID;
         $product->description = $request->description;
         $product->save();
         return redirect()->route('admin-product');
@@ -67,8 +83,9 @@ class ProductController extends Controller
             'weight' => 0,
             'options' => [
                 'img' => $product->images,
-                'color' => $product->color,
-                'size' => $product->size,
+                'color' => $product->colorID,
+                'size' => $product->sizeID,
+                'category' => $product->categoryID,
             ]
         ]);
 

@@ -26,6 +26,8 @@ Route::get('/', function () {
 Route::get('/news', function () {
     return view('news');
 });
+ Route::get('/search', function () {
+            return view('search');});
 // Route::get('index',[
 //     'as'=>'homepage',
 //     'user'=>'PageController@getIndex'
@@ -124,5 +126,31 @@ Route::post('admin-news', 'NewsController@CreateNews') ->name('postnews');
 
 Route::get('admin-news/{newsid}', 'NewsController@DeleteNews') ->name('delete-news');
 
-// Route::get('admin-news',[AdminController::class, 'getNews']) -> name('admin-news');
-// Route::get('admin-news', 'NewsController@getAllAdminNews') ->name('admin-news');
+
+
+// Category========================================================================================
+// Route::get('category', 'CategoryController@getAllCategory') ->name('news');
+Route::get('admin-category', 'CategoryController@getAllCategory') ->name('admin-category');
+Route::post('admin-category', 'CategoryController@createCategory') ->name('postcategory');
+
+Route::get('admin-category/{categoryID}', 'CategoryController@deleteCategory') ->name('delete-category');
+Route::get('admin-updateCategory/{categoryID}','CategoryController@getUpdateCategory') -> name('AA');
+Route::post('admin-updateCategory/{categoryID}','CategoryController@updateCategory');
+
+// Color========================================================================================
+// Route::get('category', 'CategoryController@getAllCategory') ->name('news');
+Route::get('admin-color', 'ColorController@getAllColor') ->name('admin-color');
+Route::post('admin-color', 'ColorController@createColor') ->name('postcolor');
+
+Route::get('admin-color/{colorID}', 'ColorController@deleteColor') ->name('delete-color');
+Route::get('admin-updateColor/{colorID}','ColorController@getUpdateColor') -> name('OO');
+Route::post('admin-updateColor/{colorID}','ColorController@updateColor');
+
+// Size========================================================================================
+// Route::get('category', 'CategoryController@getAllCategory') ->name('news');
+Route::get('admin-size', 'SizeController@getAllSize') ->name('admin-size');
+Route::post('admin-size', 'SizeController@createSize') ->name('postsize');
+
+Route::get('admin-size/{sizeID}', 'SizeController@deleteSize') ->name('delete-size');
+Route::get('admin-updateSize/{sizeID}','SizeController@getUpdateSize') -> name('YY');
+Route::post('admin-updateSize/{sizeID}','SizeController@updateSize');

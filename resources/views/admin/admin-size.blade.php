@@ -20,47 +20,40 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>ID News</th>
-                                            <th>username</th>
-                                            <th>title</th>
-                                            <th>author</th>
-                                            <th>Content</th>
-                                            <th>Images</th>
+                                            <th>Size ID</th>
+                                            <th>Size Name</th>
+                                            <th>Description</th>
+                                            
                                             
                                         </tr>
                                         <tr>
                                             <form action="" method="post">
                                                 @csrf
                                                 <th></th>
-                                                <th><input type="text" name="newsid" id=""></th>
-                                                <th><input type="text" name="username" id=""></th>
-                                                <th><input type="text" name="heading" id=""></th>
-                                                <th><input type="text" name="author" id=""></th>
-                                                <th><input type="text"  name="paraphase" id=""></th>
-                                                <th><input type="file" name="images" id="" multiple></th>
+                                                <th><input type="text" name="sizeID" id=""></th>
+                                                <th><input type="text" name="sizeName" id=""></th>
+                                                <th><input type="text" name="description" id=""></th>
+                                                
                                                 
                                                 <th>
                                                     <input type="submit" value="Create">
                                                 </th>
                                             </form>
-                                            
+                                        
                                         </tr>
 
                                     </thead>
                                     <tbody>
-                                        @foreach ( $news as $key => $value )
+                                        @foreach ( $size as $key => $value )
                                         <tr>
                                             <th>{{ $key + 1}}</th>
-                                            <th>{{ $value -> newsid}}</th>
-                                            <th>{{ $value -> uesrname}}</th>
-                                            <th>{{ $value -> heading}}</th>
-                                            <th>{{ $value -> author}}</th> 
-                                            <th>{{ $value -> paraphase}}</th>
-                                           
-                                            <th>{{ $value -> images}}</th>
-                                            
-                                            <th><a href="{{route('delete-news',$value->newsid)}}">Delete</a></th>
+                                            <th>{{ $value -> sizeID}}</th>
+                                            <th>{{ $value -> sizeName}}</th>
+                                            <th>{{ $value -> description}}</th>
                                           
+                                            <th><a href="{{route('delete-size',$value->sizeID)}}">Delete</a></th>
+                                           
+                                            <th><a href="{{route('YY',$value->sizeID)}}">Update</a></th>
                                         </tr>
                                         @endforeach
                                     </tbody>

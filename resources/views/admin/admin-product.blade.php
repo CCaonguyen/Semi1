@@ -23,51 +23,53 @@
                                             <th>ID Product</th>
                                             <th>Name</th>
                                             <th>Price</th>
+                                            <th>Category</th>
                                             <th>Color</th>
                                             <th>Size</th>
                                             <th>Images</th>
-                                            <th>Category</th>
+                                            
                                             <th>Description</th>
                                         </tr>
                                         <tr>
                                             <form action="" method="post">
                                                 @csrf
+                                                @php
+                                                    $category = DB::table('categories')->select('categoyName')->where('categoryID',$product->categoryID)->get();
+                                                    $color = DB::table('colors')->select('colorName')->where('colorID',$product->colorID)->get();
+                                                    $size = DB::table('sizes')->select('colorName')->where('colorID',$product->colorID)->get();
+                                                    @endphp
                                                 <th></th>
                                                 <th><input type="text" name="productid" id=""></th>
                                                 <th><input type="text" name="productname" id=""></th>
                                                 <th><input type="number" min="0" value="10" name="price" id=""></th>
-                                                <th><input type="text" name="color" id=""></th>
-                                                <th><input type="number" value="35" min="35" max="43" name="size" id=""></th>
-                                                <th><input type="file" name="images" id="" multiple></th>
-                                                <th><input type="text" name="category" id="" ></th>
+                                                                                            
+                                                
+                                   
+                                                <th> 
+                                                     @foreach( $category as  $value ) 
+                                                         <option value="{{$value -> categoryID}}">
+                                                            {{$value ->categoryName}}</option>
+                                                     @endforeach
+                                                </th>
+                                                <th> 
+                                                    @foreach( $color as  $value ) 
+                                                        <option value="{{$value -> colorID}}">
+                                                           {{$value ->colorName}}</option>
+                                                    @endforeach
+                                               </th>
+                                               <th> 
+                                                @foreach( $size as $value ) 
+                                                    <option value="{{$value -> sizeID}}">
+                                                       {{$value ->sizeName}}</option>
+                                                @endforeach
+                                           </th>
+                                           <th><input type="file" name="images" id="" multiple></th>
                                                 <th><input type="text" name="description" id="" ></th>
                                                 <th>
                                                     <input type="submit" value="Create">
                                                 </th>
                                             </form>
-                                            {{-- @csrf
-                                            <th><input type="text" name="productid" id=""></th>
-                                            <th><input type="text" name="productname" id=""></th>
-                                            <th><input type="number" min="0" value="10" name="price" id=""></th>
-                                            <th><input type="text" name="color" id=""></th>
-                                            <th><input type="number" value="35" min="35" max="43" name="size" id=""></th>
-                                            <th><input type="file" name="images" id="" multiple></th>
-                                            <th><input type="text" name="category" id="" ></th>
-                                            <th><input type="text" name="description" id="" ></th>
-                                            <th>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Modify
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                                                        <li><a class="dropdown-item active" href="#">Modify</a></li>
-                                                        <li><hr class="dropdown-divider"></li>
-                                                        <li><a class="dropdown-item" href="#">Create</a></li>
-                                                        <li><a class="dropdown-item" href="#">Update</a></li>
-                                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                    </ul>
-                                                </div>
-                                            </th> --}}
+                                            
                                         </tr>
 
                                     </thead>
@@ -78,14 +80,14 @@
                                             <th>{{ $value -> productid}}</th>
                                             <th>{{ $value -> productname}}</th>
                                             <th>{{ $value -> price}}</th>
-                                            {{-- <th>{{ $value -> size}}</th> --}}
-                                            <th>{{ $value -> color}}</th>
-                                            <th>{{ $value -> size}}</th>
+                                            <th>{{ $value -> categoryID}}</th>
+                                            <th>{{ $value -> colorID}}</th>
+                                            <th>{{ $value -> sizeID}}</th>
                                             <th>{{ $value -> images}}</th>
-                                            <th>{{ $value -> category}}</th>
+
                                             <th>{{ $value -> description}}</th>
                                             <th><a href="{{route('delete',$value->productid)}}">Delete</a></th>
-                                          
+                                            <th><a href="{{route('delete',$value->productid)}}">Update</a></th>
                                         </tr>
                                         @endforeach
                                     </tbody>

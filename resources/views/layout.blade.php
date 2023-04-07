@@ -68,8 +68,11 @@
                                                     Ccao Nguyen <i class="fas fa-bars"
                                                         style="text-align: center"></i></span></h1>
                                         </a>
+                                    @guest
+                                     
                                         <li><a  href="{{route('index')}}">Home</a></li>
-           
+                                        @else
+                                        <li><a  href="{{route('index')}}">Home</a></li>
                                         <li><a href="{{ asset('product') }}">Product</a></li>
 
 
@@ -79,13 +82,13 @@
                                         
                                         <li><a href="{{ asset('news') }}">News</a></li>
 
+                                        
 
 
-
-
+                                        @endguest
 
                                     </ul>
-                         
+                                    @guest
                                         <!-- Login/Register & Cart Button -->
                                         <div class="login-register-cart-button d-flex align-items-center">
                                             <!-- Login/Register -->
@@ -96,20 +99,15 @@
                                                 <a href="{{ asset('signup') }}" id="loginBtn"> Register</a>
                                             </div>
                                         </div>
-                                      
+                                        @else
                                         <div class="login-register-cart-button d-flex align-items-center">
                                             <div class="login-register-btn mr-50">
                                                 <a href="{{ asset('logout') }}" id="loginBtn">Logout</a>
                                             </div>
                                         </div>
+                                        @endguest
 
-
-
-
-
-
-
-
+                                        
                                     <!-- ======= Search Form ======= -->
 
 
@@ -146,3 +144,4 @@
 </body>
 
 </html>
+
