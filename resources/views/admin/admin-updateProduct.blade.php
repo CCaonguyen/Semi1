@@ -19,36 +19,51 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
+                                            <th>ID Product</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Price</th>
+                                            <th>Category</th>
+                                            <th>Color</th>
+                                            <th>Size</th>
+                                            <th>Images</th>
+                                            
+                                            <th>Description</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>#</th>
+                                            <th>ID Product</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Price</th>
+                                            <th>Category</th>
+                                            <th>Color</th>
+                                            <th>Size</th>
+                                            <th>Images</th>
+                                            
+                                            <th>Description</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <form action="" method="post">
                                             @csrf
                                                 <th>#</th>
-                                                <th><input type="text" name="username" value="{{$user->username}}"></th>
+                                              
+                                                <th><input type="text" name="productID" value="{{$product->productID}}"></th>
                 
-                                                <th><input type="text" name="fullname" value="{{$user->fullname}}" ></th>
-                                                <th><input type="number" name="phonenumber" value="{{$user->phonenumber}}"></th>
-                                                <th><input type="email" name="email" value="{{$user->email}}"></th>
-                                                <th><input type="text" name="address" value="{{$user->address}}"></th>
-                                                <th><input type="text" name="city" value="{{$user->city}}"></th>
+                                                <th><input type="text" name="productname" value="{{$product->productname}}" ></th>
+                                
+                                                <th><input type="text" name="price" min="0" value="10" value="{{$product->price}}"></th>
+                                                <th><input type="text" name="categoryID" value="{{$product->categoryID}}"></th>
+                
+                                                <th><input type="text" name="colorID" value="{{$product->colorID}}" ></th>
+                                                <th><input type="text" name="sizeID" value="{{$product->sizeID}}" ></th>
+                                                <th><input type="text" name="images" value="{{$product->images}}" ></th>
+                                                <th><input type="text" name="description" value="{{$product->description}}"></th>
+                                                
                                                 <th><button type="submit">Update </button></th>
+                                                {{-- <th><button type="submit"><a href="{{route('update-color',$value->colorID)}}">Update</a></button></th> --}}
                                             </tr>
                                         </form>
                                     </tbody>

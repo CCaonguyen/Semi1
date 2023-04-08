@@ -12,4 +12,7 @@ class size extends Model
     protected $table = 'sizes';
     protected $primaryKey = 'sizeID';
     public $timestamps = false;
+    public function Product(){
+        return $this->hasMany(Product::class);
+    }
 }

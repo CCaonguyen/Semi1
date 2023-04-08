@@ -36,7 +36,7 @@
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
-                            <a href="#" class="post-title">{{$value->heading}}</a>
+                            <a href="#" class="post-title">{{$value->title}}</a>
                             <!-- Post Meta -->
                             <div class="post-meta d-flex mb-30">
                                 <p class="post-author">By<a href="#">>{{$value->author}}</a></p>
@@ -45,13 +45,13 @@
                             </div>
                             <!-- Post Excerpt -->
                             <p>
-                                {{$value->paraphase}}
+                                {{$value->content}}
                                 </p>
                         </div>
                     </div>
                      @endforeach
 
-                   
+                    
 
                     <!-- Pagination -->
                     <div class="oneMusic-pagination-area wow fadeInUp" data-wow-delay="300ms">

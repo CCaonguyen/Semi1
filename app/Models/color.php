@@ -12,4 +12,7 @@ class color extends Model
     protected $table = 'colors';
     protected $primaryKey = 'colorID';
     public $timestamps = false;
+    public function Product(){
+        return $this->hasMany(Product::class);
+    }
 }

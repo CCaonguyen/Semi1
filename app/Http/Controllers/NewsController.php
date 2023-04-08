@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\CategoryController;
+
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryController extends Controller
+class NewsController extends Controller
 {
     public function formNews()
     {
-         $Category = Category::All();
+         $News = News::All();
         
         return view('admin.admin-news',  compact("news"));
     }
@@ -26,20 +26,22 @@ class CategoryController extends Controller
     public function CreateNews(Request $request)
     {
         $news = new News;
-        $news->newsid = $request->newsid;
-        $news->username =  $request->username;;
-        $news->heading = $request->heading;
-        $news->author = $request->author;
-        $news->paraphase = $request->paraphase;
+        $news->newsID = $request->newsID;
+        $news->author =  $request->author;
+        $news->title = $request->title;
+        $news->content = $request->content;
         $news->images = $request->images;
+        
         $news->save();
         // return redirect('news');
          return redirect()->route('admin-news');
     }
 
-    public function DeleteNews($newsid)
+   
+
+    public function DeleteNews($newsID)
     {
-        $news = News::find($newsid);
+        $news = News::find($newsID);
         $news->delete();
         return back();
     }

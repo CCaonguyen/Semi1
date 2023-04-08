@@ -30,7 +30,7 @@
                                         @foreach ( $order->orderDetails as $key => $value )
                                         <tr>
                                             <td class="text-center">{{ $key + 1}}</td>
-                                            <td class="text-center">{{ $value->product->productid }}</td>
+                                            <td class="text-center">{{ $value->product->productID }}</td>
                                             <td class="text-center">${{ number_format($value->price) }}</td>
                                             <td class="text-center">{{ $value->amount}}</td>
                                             <td class="text-center">${{ number_format($value->total_money) }}</td>

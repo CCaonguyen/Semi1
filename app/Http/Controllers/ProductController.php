@@ -6,7 +6,7 @@ use App\Models\Order;
 use App\Models\size;
 use App\Models\color;
 use App\Models\category;
-
+use App\Models\Cart_Items;
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Response;
 
@@ -48,35 +48,61 @@ class ProductController extends Controller
         $product->productID = $request->productID;
         $product->productname = $request->productname;
         $product->price = $request->price;
+        $product->categoryID = $request->categoryID;
         $product->colorID = $request->colorID;
         $product->sizeID = $request->sizeID;
         $product->images = $request->images;
-        $product->categoryID = $request->categoryID;
+        
         $product->description = $request->description;
         $product->save();
         return redirect()->route('admin-product');
     }
-
-    public function Detail($productid)
+    public function updateProduct(Request $request, $productID)
     {
-        $data = Product::find($productid);
+        $product = Product::find($productID);
+        $product->productID = $request->productID;
+        $product->productname = $request->productname;
+        $product->price = $request->price;
+        $product->categoryID = $request->categoryID;
+        $product->colorID = $request->colorID;
+        $product->sizeID = $request->sizeID;
+        $product->images = $request->images;
+        
+        $product->description = $request->description;
+       
+        $product->save();
+        return back();
+
+    
+    }
+
+    public function getUpdateProduct($productID)
+    {
+        $data['product'] = Product::find($productID);
+        return view('admin.admin-updateProduct',$data);
+    }
+    public function Detail($productID)
+    {
+        $data = Product::find($productID);
         return view('detail',['data' => $data]);
 
     }
 
-    public function DeleteProduct($productid)
+    public function DeleteProduct($productID)
     {
-        $product = Product::find($productid);
+        $product = Product::find($productID);
         $product->delete();
         return back();
     }
 
-    public function addToCart($productid)
-    {
-        $product = Product::find($productid);
 
-        Cart::add([
-            'id' => $productid,
+    
+    public function addToCart($productID)
+    {
+        $product = Product::find($productID);
+      
+        Cart_Items::add([
+            'id' => $productID,
             'name' => $product->productname,
             'qty' => 1,
             'price' => $product->price,
@@ -88,15 +114,16 @@ class ProductController extends Controller
                 'category' => $product->categoryID,
             ]
         ]);
+        
 
-        $content = Cart::content();
+        $content = Cart_Items::content();
 
         return redirect()->route('cart')->with('alert-success', 'Thêm sản phẩm '.$product->name.' vào giỏ hàng thành công!');
     }
 
     // Xóa sản phẩm trỏng giỏ
     public function delProductCart($id){
-        Cart::remove($id);
+        Cart_Items::remove($id);
         return redirect()->back()->with('alert-success', 'Xoá sản phẩm trong giỏ thành công!');
     }
 

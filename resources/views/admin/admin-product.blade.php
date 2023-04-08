@@ -31,45 +31,58 @@
                                             <th>Description</th>
                                         </tr>
                                         <tr>
-                                            <form action="" method="post">
+                                            <form action="{{ route('admin-product') }}" method="post">
                                                 @csrf
                                                 @php
-                                                    $category = DB::table('categories')->select('categoyName')->where('categoryID',$product->categoryID)->get();
-                                                    $color = DB::table('colors')->select('colorName')->where('colorID',$product->colorID)->get();
-                                                    $size = DB::table('sizes')->select('colorName')->where('colorID',$product->colorID)->get();
+                                                    $category = DB::table('categories')->select('*')->get();
+                                                    $color = DB::table('colors')->select('*')->get();
+                                                    $size = DB::table('sizes')->select('*')->get();
                                                     @endphp
+
+                                                  
                                                 <th></th>
-                                                <th><input type="text" name="productid" id=""></th>
+                                                <th><input type="text" name="productID" id=""></th>
                                                 <th><input type="text" name="productname" id=""></th>
                                                 <th><input type="number" min="0" value="10" name="price" id=""></th>
+                                              
+
+
+
                                                                                             
-                                                
-                                   
-                                                <th> 
-                                                     @foreach( $category as  $value ) 
-                                                         <option value="{{$value -> categoryID}}">
-                                                            {{$value ->categoryName}}</option>
-                                                     @endforeach
-                                                </th>
-                                                <th> 
-                                                    @foreach( $color as  $value ) 
-                                                        <option value="{{$value -> colorID}}">
-                                                           {{$value ->colorName}}</option>
+                                                 <th> <select class="form-select" name = "categoryID" aria-label="Default select example"> 
+                                                    @foreach ($category as $item)
+                                                   <option value="{{$item ->categoryName}}">{{$item ->categoryName}}</option>
+                                                   @endforeach
+                                             
+                                                 
+                                                  </select> 
+
+                                                  
+                                                  
+                                                   <select class="form-select" name = "colorID" aria-label="Default select example">
+                                                    @foreach ($color as $item)
+                                                    <option value="{{$item ->colorName}}">{{$item ->colorName}}</option>
                                                     @endforeach
-                                               </th>
-                                               <th> 
-                                                @foreach( $size as $value ) 
-                                                    <option value="{{$value -> sizeID}}">
-                                                       {{$value ->sizeName}}</option>
-                                                @endforeach
-                                           </th>
+                                               
+                                                     
+                                             </select> 
+                                                
+                                                    <select class="form-select" name = "sizeID" aria-label="Default select example">
+                                                    @foreach ($size as $item)
+                                                    <option value="{{$item ->sizeName}}">{{$item ->sizeName}}</option>
+                                                    @endforeach
+                                              
+                                                     
+                                                   </select> </th> 
                                            <th><input type="file" name="images" id="" multiple></th>
                                                 <th><input type="text" name="description" id="" ></th>
                                                 <th>
                                                     <input type="submit" value="Create">
                                                 </th>
+
                                             </form>
-                                            
+                                             
+                                        
                                         </tr>
 
                                     </thead>
@@ -77,7 +90,7 @@
                                         @foreach ( $product as $key => $value )
                                         <tr>
                                             <th>{{ $key + 1}}</th>
-                                            <th>{{ $value -> productid}}</th>
+                                            <th>{{ $value -> productID}}</th>
                                             <th>{{ $value -> productname}}</th>
                                             <th>{{ $value -> price}}</th>
                                             <th>{{ $value -> categoryID}}</th>
@@ -86,8 +99,8 @@
                                             <th>{{ $value -> images}}</th>
 
                                             <th>{{ $value -> description}}</th>
-                                            <th><a href="{{route('delete',$value->productid)}}">Delete</a></th>
-                                            <th><a href="{{route('delete',$value->productid)}}">Update</a></th>
+                                            <th><a href="{{route('delete',$value->productID)}}">Delete</a></th>
+                                            <th><a href="{{route('HH',$value->productID)}}">Update</a></th>
                                         </tr>
                                         @endforeach
                                     </tbody>

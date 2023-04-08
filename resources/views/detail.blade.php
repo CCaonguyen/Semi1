@@ -34,8 +34,8 @@
                         <hr>
                         <div class="info-product">
                             <h1>{{$data['productname']}}</h1>
-                            <p>Category:{{$data['category']}} </p>
-                            <p>ID: {{$data['productid']}}</p>
+                            <p>Category:{{$data['categoryID']}} </p>
+                            <p>ID: {{$data['productID']}}</p>
                             <h4 style="color: #ff5f17;">${{$data['price']}}</h4>
                             <hr style="border: 2px dashed white;">
                             <p>{{$data['description']}}</p>
@@ -50,20 +50,20 @@
                                     <tr>
                                         <td>
                                             <select name="" id="">
-                                                <option value="{{$data['color']}}">{{$data['color']}}</option>
+                                                <option value="{{$data['colorID']}}">{{$data['colorID']}}</option>
 
                                             </select>
                                         </td>
                                         <td>
                                             <select name="" id="">
-                                                <option value="{{$data['size']}}">{{$data['size']}}</option>
+                                                <option value="{{$data['sizeID']}}">{{$data['sizeID']}}</option>
                                             </select>
                                         </td>
                                     </tr>
                                 </table>
                             </form>
                             <hr style="border: 2px dashed white;">
-                            <a class="btn-footer" href="{{ route('add-to-cart', $data['productid']) }}">ORDER NOW</a>
+                            <a class="btn-footer" href="{{ route('add-to-cart', $data['productID']) }}">ORDER NOW</a>
                         </div>
 
                     </div>

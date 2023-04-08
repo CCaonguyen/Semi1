@@ -10,8 +10,8 @@ class Product extends Model
     use HasFactory;
     // public $product = 'product';
     public $table = 'product';
-    protected $fillable = ['productid','productname','price','sizeID','colorID','images','categoryID','description'];
-    protected $primaryKey = 'productid';
+    protected $fillable = ['productID','productname','price','categoryID','sizeID','colorID','images','description'];
+    protected $primaryKey = 'productID';
     public $timestamps = false;
     public $incrementing = false;
     // In Laravel 6.0+ make sure to also set $keyType

@@ -97,7 +97,7 @@ Route::post('admin-product','ProductController@addProduct') ->name('admin-produc
 Route::get('detail/{productid}',[ProductController::class, 'Detail']);
 Route::get('admin-product/{productid}',[ProductController::class, 'DeleteProduct']) ->name('delete');
 
-Route::get('add-to-cart/{productid}',[ProductController::class, 'addToCart'])->name('add-to-cart');
+Route::get('add-to-cart/{productID}',[ProductController::class, 'addToCart'])->name('add-to-cart');
 Route::get('del-product-cart/{id}',[ProductController::class, 'delProductCart'])->name('del-product-cart');
 Route::get('update-product-cart/{rowid}',[ProductController::class, 'updateProductCart'])->name('update-product-cart');
 
@@ -154,3 +154,8 @@ Route::post('admin-size', 'SizeController@createSize') ->name('postsize');
 Route::get('admin-size/{sizeID}', 'SizeController@deleteSize') ->name('delete-size');
 Route::get('admin-updateSize/{sizeID}','SizeController@getUpdateSize') -> name('YY');
 Route::post('admin-updateSize/{sizeID}','SizeController@updateSize');
+
+
+Route::get('admin-updateProduct/{productID}','ProductController@getUpdateProduct') -> name('HH');
+Route::post('admin-updateProduct/{productID}','ProductController@updateProduct');
+
